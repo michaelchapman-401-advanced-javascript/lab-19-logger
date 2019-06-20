@@ -22,7 +22,7 @@ db.subscribe('delete', payload => {
 });
 
 db.subscribe('error', payload => {
-  console.log('ERROR: ', payload);
+  console.error('ERROR: ', payload);
 });
 
 files.subscribe('save', payload => {
