@@ -1,7 +1,9 @@
 'use strict';
 
+require('dotenv').config();
+
 const Q = require('@nmq/q/client');
- 
+
 const db = new Q('database');
 const files = new Q('files');
 
@@ -27,4 +29,8 @@ db.subscribe('error', payload => {
 
 files.subscribe('save', payload => {
   console.log('SAVE: ', payload);
+});
+
+files.subscribe('error', payload => {
+  console.log('ERROR: ', payload);
 });
