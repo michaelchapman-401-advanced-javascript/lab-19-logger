@@ -2,9 +2,9 @@
   "name": "events-lab",
   "version": "1.0.0",
   "description": "Events Lab",
-  "main": "app.js",
+  "main": "logger.js",
   "scripts": {
-    "start": "node server.js & && node logger.js & && node app.js &",
+    "start": "node logger.js",
     "test": "jest --verbose --coverage",
     "lint": "eslint --fix \"**/*.js\""
   },
