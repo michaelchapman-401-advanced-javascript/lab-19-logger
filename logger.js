@@ -3,34 +3,21 @@
 require('dotenv').config();
 
 const Q = require('@nmq/q/client');
+const log = require('./log.js');
 
 const db = new Q('database');
 const files = new Q('files');
 
-db.subscribe('create', payload => {
-  console.log('CREATE: ', payload);
-});
+db.subscribe('create', payload => log(payload, 'CREATE'));
 
-db.subscribe('read', payload => {
-  console.log('READ: ', payload);
-});
+db.subscribe('read', payload => log(payload, 'READ'));
 
-db.subscribe('update', payload => {
-  console.log('UPDATE: ', payload);
-});
+db.subscribe('update', payload => log(payload, 'UPDATE'));
 
-db.subscribe('delete', payload => {
-  console.log('DELETE: ', payload);
-});
+db.subscribe('delete', payload => log(payload, 'DELETE'));
 
-db.subscribe('error', payload => {
-  console.error('ERROR: ', payload);
-});
+db.subscribe('error', payload => log(payload, 'ERROR'));
 
-files.subscribe('save', payload => {
-  console.log('SAVE: ', payload);
-});
+files.subscribe('save', payload => log(payload, 'SAVE'));
 
-files.subscribe('error', payload => {
-  console.log('ERROR: ', payload);
-});
+files.subscribe('error', payload => log(payload, 'ERROR'));
